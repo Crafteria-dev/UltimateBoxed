@@ -1,0 +1,22 @@
+name: UltimateBoxed
+version: '${project.version}'
+main: fr.zo3n.boxed.BoxedPlugin
+api-version: '1.21'
+description: UltimateBoxed — zone limitée, mondes isolés et quêtes progressives
+authors:
+  - ZO3N
+
+commands:
+  boxed:
+    description: Commande principale du mode Boxed
+    usage: /<command> [play|leave|quests|info|setzone|reset|reload|status]
+    aliases: [bx]
+    permission: boxed.use
+
+permissions:
+  boxed.use:
+    description: Permet d'utiliser les commandes de base de Boxed
+    default: true
+  boxed.admin:
+    description: Permet d'utiliser les commandes admin de Boxed
+    default: op

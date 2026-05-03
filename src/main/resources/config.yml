@@ -1,0 +1,53 @@
+# ════════════════════════════════════════════════════════════════
+#                  UltimateBoxed — config.yml
+#                     Auteur : ZO3N
+# ════════════════════════════════════════════════════════════════
+
+zone:
+  # Taille de départ en chunks (1 = 1×1 chunk = 16×16 blocs)
+  start-size: 1
+  # Durée (en secondes) de l'animation d'agrandissement de la border
+  expand-animation-duration: 3
+  # Dégâts infligés par la border par seconde
+  damage-amount: 0.2
+  # Zone tampon avant les dégâts (en blocs)
+  damage-buffer: 0.5
+  # Distance d'avertissement visuel (en blocs)
+  warning-distance: 5
+
+# Mode équipe : les joueurs d'une équipe partagent une zone (prévu)
+team-mode: false
+
+optimization:
+  # Délai (en ticks) avant qu'une modification de données joueur soit écrite sur disque.
+  # Les modifications rapides (quêtes enchaînées) sont regroupées en une seule écriture.
+  # 1 tick = 50 ms → 100 ticks = 5 secondes.
+  save-delay-ticks: 100
+  # Intervalle de la sauvegarde automatique périodique (en ticks).
+  # Sauvegarde toutes les données modifiées non encore écrites, en arrière-plan.
+  # 6000 ticks = 5 minutes.
+  auto-save-interval-ticks: 6000
+
+# Vérification des mises à jour au démarrage via GitHub
+# Désactivez avec false si votre serveur n'a pas accès à internet
+update-check: true
+
+world:
+  # Nom du monde lobby (où les joueurs atterrissent avant /boxed play et après /boxed leave)
+  lobby-world: "world"
+  # Décharger le monde d'un joueur quand il est vide (économise la RAM)
+  unload-when-empty: true
+
+messages:
+  play-instructions: "§6Bienvenue ! Faites §e/boxed play §6pour démarrer votre aventure Boxed."
+  play-generating: "§eGénération de votre monde… Un instant !"
+  play-first-time: "§6Bienvenue dans votre monde Boxed ! Complétez vos quêtes pour agrandir votre zone."
+  play-returning: "§aReprise de votre monde Boxed !"
+  leave-world: "§7Vous avez quitté votre monde Boxed."
+  welcome: "§6Bienvenue dans §lBoxed§r§6 ! Complétez vos quêtes pour agrandir votre zone."
+  zone-expanded: "§a✦ Zone agrandie ! Taille actuelle : §e%chunks% chunk(s)"
+  zone-expanded-subtitle: "§7%size%×%size% blocs disponibles"
+  quest-completed: "§a✔ Quête complétée : §e%quest%"
+  quest-progress: "§7[§6%quest%§7] §e%current%§7/§e%target% §7— %desc%"
+  quest-unlocked: "§6✦ Nouvelle quête débloquée : §e%quest%"
+  border-warning: "§c⚠ Vous atteignez la limite de votre zone !"

@@ -1,0 +1,145 @@
+# ════════════════════════════════════════════════════════════════
+#                  UltimateBoxed — quests.yml
+# ════════════════════════════════════════════════════════════════
+#
+# Format d'une quête :
+#   <id>:
+#     name: "Nom affiché (§ color codes supportés)"
+#     description: "Description courte"
+#     tier: 1
+#     icon: MATERIAL_NAME
+#     prerequisites: []           # IDs des quêtes à compléter avant
+#     conditions:
+#       - type: BREAK_BLOCK | PLACE_BLOCK | KILL_MOB | CRAFT_ITEM
+#                SMELT_ITEM | FISH | SLEEP | TRADE_VILLAGER
+#         material: MATERIAL_NAME  (si applicable)
+#         entity: ENTITY_TYPE      (si applicable)
+#         amount: <int>
+#     rewards:
+#       - type: XP | ITEM | ZONE_EXPAND
+#         amount: <int>
+#         material: MATERIAL_NAME  (si type=ITEM)
+
+quests:
+
+  # ──────────────────────────────────────────────────────────────
+  #  TIER 1 — Zone de départ (4 quêtes)
+  # ──────────────────────────────────────────────────────────────
+
+  bois_de_base:
+    name: "§6Récolte de bois"
+    description: "Coupez du bois pour débuter votre aventure."
+    tier: 1
+    icon: OAK_LOG
+    prerequisites: []
+    conditions:
+      - type: BREAK_BLOCK
+        material: OAK_LOG
+        amount: 10
+    rewards:
+      - type: XP
+        amount: 30
+      - type: ITEM
+        material: CRAFTING_TABLE
+        amount: 1
+
+  premiere_nuit:
+    name: "§6Première nuit"
+    description: "Dormez dans un lit pour survivre à votre première nuit."
+    tier: 1
+    icon: WHITE_BED
+    prerequisites: []
+    conditions:
+      - type: SLEEP
+        amount: 1
+    rewards:
+      - type: XP
+        amount: 20
+      - type: ITEM
+        material: TORCH
+        amount: 8
+
+  survivant:
+    name: "§6Survivant"
+    description: "Tuez des zombies pour sécuriser votre zone la nuit."
+    tier: 1
+    icon: ROTTEN_FLESH
+    prerequisites: []
+    conditions:
+      - type: KILL_MOB
+        entity: ZOMBIE
+        amount: 5
+    rewards:
+      - type: XP
+        amount: 40
+      - type: ITEM
+        material: IRON_SWORD
+        amount: 1
+
+  artisan_debutant:
+    name: "§6Artisan débutant"
+    description: "Fabriquez vos premiers outils en bois."
+    tier: 1
+    icon: WOODEN_PICKAXE
+    prerequisites:
+      - bois_de_base
+    conditions:
+      - type: CRAFT_ITEM
+        material: WOODEN_PICKAXE
+        amount: 1
+      - type: CRAFT_ITEM
+        material: WOODEN_AXE
+        amount: 1
+    rewards:
+      - type: XP
+        amount: 50
+      - type: ZONE_EXPAND
+        amount: 1
+
+  # ──────────────────────────────────────────────────────────────
+  #  TIER 2 — Zone élargie (2 quêtes)
+  # ──────────────────────────────────────────────────────────────
+
+  mineur:
+    name: "§bMineur"
+    description: "Extrayez du minerai de fer sous la surface."
+    tier: 2
+    icon: IRON_ORE
+    prerequisites:
+      - artisan_debutant
+    conditions:
+      - type: BREAK_BLOCK
+        material: IRON_ORE
+        amount: 15
+      - type: BREAK_BLOCK
+        material: DEEPSLATE_IRON_ORE
+        amount: 5
+    rewards:
+      - type: XP
+        amount: 100
+      - type: ITEM
+        material: IRON_INGOT
+        amount: 8
+
+  forgeron:
+    name: "§bForgeron"
+    description: "Fondez du fer et forgez votre premier pic en fer."
+    tier: 2
+    icon: BLAST_FURNACE
+    prerequisites:
+      - mineur
+    conditions:
+      - type: SMELT_ITEM
+        material: IRON_INGOT
+        amount: 10
+      - type: CRAFT_ITEM
+        material: IRON_PICKAXE
+        amount: 1
+    rewards:
+      - type: XP
+        amount: 150
+      - type: ZONE_EXPAND
+        amount: 1
+      - type: ITEM
+        material: DIAMOND
+        amount: 2
